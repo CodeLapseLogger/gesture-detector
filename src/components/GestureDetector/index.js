@@ -17,7 +17,7 @@ const GestureDetector = (props) => {
     setGestureDetectionState(!isDetectingGesture);
 
   return (
-    <GestureDetectorBgContainer>
+    <GestureDetectorBgContainer isDetectingGesture={isDetectingGesture}>
       {isDetectingGesture ? <WebcamFeed /> : <GestureDetectionStartMessage />}
 
       <ToggleGestureDetectionButton

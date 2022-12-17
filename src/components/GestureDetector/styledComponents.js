@@ -3,10 +3,12 @@ import styled from "styled-components";
 export const GestureDetectorBgContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: ${(props) =>
+    props.isDetectingGesture ? "flex-end" : "center"};
   align-items: center;
   min-height: 100vh;
   height: 100%;
+  width: 100vw;
   padding: 2rem;
   background-color: ${(props) => (props.isDarkTheme ? "#191a1c" : "#ffffff")};
 `;
@@ -21,13 +23,4 @@ export const ToggleGestureDetectionButton = styled.button`
   font-size: 1.5rem;
   font-family: "Roboto";
   font-weight: 550;
-  ${(props) =>
-    props.isDetectingGesture &&
-    `position: absolute;
-  marginleft: auto;
-  marginright: auto;
-  bottom: 0;
-  textalign: center;
-  zindex: 1;
-  `}
 `;
