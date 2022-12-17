@@ -3,6 +3,7 @@ import * as tf from "@tensorflow/tfjs";
 import * as handpose from "@tensorflow-models/handpose";
 
 import WebcamFeed from "../WebcamFeed";
+import GestureDetectionStartMessage from "../GestureDetectionStartMessage";
 
 import {
   GestureDetectorBgContainer,
@@ -17,7 +18,7 @@ const GestureDetector = (props) => {
 
   return (
     <GestureDetectorBgContainer>
-      {isDetectingGesture && <WebcamFeed />}
+      {isDetectingGesture ? <WebcamFeed /> : <GestureDetectionStartMessage />}
 
       <ToggleGestureDetectionButton
         type="button"
