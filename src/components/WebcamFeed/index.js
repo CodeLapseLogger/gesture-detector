@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import Webcam from "react-webcam";
 import { ThreeCircles } from "react-loader-spinner";
-// import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+
+import { commenceGestureDetection } from "../../utilities/handposeHelper";
 
 const WebcamFeed = (props) => {
   const webCamRef = useRef(null);
@@ -11,9 +12,26 @@ const WebcamFeed = (props) => {
   const [isWebcamFeedLoading, setWebcamFeedLoadState] = useState(true);
 
   // Executed just once to set load state to false, which replaces
-  // the rendered loader spinner with webcam feed
+  // the rendered loader spinner with webcam feed. Also, kicks off
+  // the handpose detection app flow and tracks the detection interval id,
+  // to be cleared when detection is stopped and this component unmounts.
   useEffect(() => {
+    let handposeDetectionIntervalId;
+
+    const commenceDetectionAndGetIntervalId = async () => {
+      handposeDetectionIntervalId = await commenceGestureDetection(
+        webCamRef,
+        canvasRef
+      );
+    };
+
+    commenceDetectionAndGetIntervalId();
+
     setWebcamFeedLoadState(false);
+
+    // Returned method called only before this component
+    // unmounts, as part of cleanup.
+    return () => clearInterval(handposeDetectionIntervalId);
   }, []);
 
   const renderedUI = isWebcamFeedLoading ? (
