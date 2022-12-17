@@ -1,6 +1,4 @@
 import { useState } from "react";
-import * as tf from "@tensorflow/tfjs";
-import * as handpose from "@tensorflow-models/handpose";
 
 import WebcamFeed from "../WebcamFeed";
 import GestureDetectionStartMessage from "../GestureDetectionStartMessage";
