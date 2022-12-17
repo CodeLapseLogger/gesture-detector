@@ -6,6 +6,6 @@ The primary goal of this project is to explore libraries, Tensorflow.js framewor
 
 ## Libraries being used and explored
 
-React.js
-Tensorflow.js framework for Deep Learning
-Tensorflow.js pre-trained models
+- React.js
+- Tensorflow.js framework for Deep Learning
+- Tensorflow.js pre-trained models
