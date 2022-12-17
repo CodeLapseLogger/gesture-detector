@@ -21,4 +21,13 @@ export const ToggleGestureDetectionButton = styled.button`
   font-size: 1.5rem;
   font-family: "Roboto";
   font-weight: 550;
+  ${(props) =>
+    props.isDetectingGesture &&
+    `position: absolute;
+  marginleft: auto;
+  marginright: auto;
+  bottom: 0;
+  textalign: center;
+  zindex: 1;
+  `}
 `;

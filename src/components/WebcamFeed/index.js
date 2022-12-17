@@ -9,6 +9,13 @@ const WebcamFeed = (props) => {
       <Webcam
         ref={webCamRef}
         style={{
+          position: "absolute",
+          marginLeft: "auto",
+          marginRight: "auto",
+          left: 0,
+          right: 0,
+          textAlign: "center",
+          zindex: 1,
           width: "60vw",
           height: "70vh",
         }}
@@ -17,6 +24,13 @@ const WebcamFeed = (props) => {
       <canvas
         ref={canvasRef}
         style={{
+          position: "absolute",
+          marginLeft: "auto",
+          marginRight: "auto",
+          left: 0,
+          right: 0,
+          textAlign: "center",
+          zindex: 1,
           width: "60vw",
           height: "70vh",
         }}

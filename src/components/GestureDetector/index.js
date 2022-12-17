@@ -22,6 +22,7 @@ const GestureDetector = (props) => {
       <ToggleGestureDetectionButton
         type="button"
         onClick={toggleGestureDetectionMode}
+        isDetectingGesture={isDetectingGesture}
       >
         {isDetectingGesture
           ? "Stop Gesture Detection"
