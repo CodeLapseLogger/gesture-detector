@@ -1,6 +1,8 @@
 import * as tf from "@tensorflow/tfjs";
 import * as handpose from "@tensorflow-models/handpose";
 
+import { drawHandMesh } from "./canvasDrawingHelper";
+
 const loadHandposeModel = async () => {
   const loadedHandposeModel = await handpose.load();
   return loadedHandposeModel;
@@ -36,6 +38,12 @@ const startHandposeModelDetection = async (
       currentVideoFeed
     );
     console.log(detectedHandEstimateData);
+
+    // Draw hand mesh in the video feed based on
+    // detected hand data.
+    const currentContextOfCanvas =
+      canvasElementReference.current.getContext("2d");
+    drawHandMesh(detectedHandEstimateData, currentContextOfCanvas);
   }
 };
 
