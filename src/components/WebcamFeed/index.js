@@ -2,8 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import Webcam from "react-webcam";
 import { ThreeCircles } from "react-loader-spinner";
 
-import victory_png from "../images/victory.png";
-import thumbs_up_png from "../images/thumbs_up.png";
+import victory_png from "../../images/victory.png";
+import thumbs_up_png from "../../images/thumbs_up.png";
 
 import { commenceGestureDetection } from "../../utilities/handposeHelper";
 
