@@ -43,6 +43,42 @@ const startHandposeModelDetection = async (
     );
     console.log(detectedHandEstimateData);
 
+    // Feed hand landmark data as input to the
+    // fingerpose model.
+    if (detectedHandEstimateData.length !== 0) {
+      const GE = new fp.GestureEstimator([
+        fp.Gestures.VictoryGesture,
+        fp.Gestures.ThumbsUpGesture,
+      ]);
+
+      const detectedGesture = await GE.estimate(
+        detectedHandEstimateData[0].landmarks,
+        8
+      ); // 8 is the confidence level (scale of 10), could be set to 8.5
+      console.log(detectedGesture);
+
+      // Determine the gesture detected with highest confidence
+      if (
+        detectedGesture.gestures !== undefined &&
+        detectedGesture.gestures.length !== 0
+      ) {
+        const detectedGestureData = detectedGesture.gestures;
+        const detectedGestureConfidences = detectedGestureData.map(
+          (gestureDataEntry) => gestureDataEntry.confidence
+        );
+
+        // Extract name of gesture detected with max confidence
+        const detectedMaxConfidence = Math.max(...detectedGestureConfidences);
+        const indexOfGestureWithMaxConfidence =
+          detectedGestureConfidences.indexOf(detectedMaxConfidence);
+        const nameOfGestureWithMaxConfidence =
+          detectedGestureData[indexOfGestureWithMaxConfidence].name;
+        console.log(
+          `Detected gesture: ${nameOfGestureWithMaxConfidence} with max confidence: ${detectedMaxConfidence}`
+        );
+      }
+    }
+
     // Draw hand mesh in the video feed based on
     // detected hand data.
     const currentContextOfCanvas =
