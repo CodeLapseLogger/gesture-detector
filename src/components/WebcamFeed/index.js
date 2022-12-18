@@ -5,6 +5,14 @@ import { ThreeCircles } from "react-loader-spinner";
 import victory_png from "../../images/victory.png";
 import thumbs_up_png from "../../images/thumbs_up.png";
 
+import {
+  WebcamFeedBgContainer,
+  DetectedGesture,
+  GestureImage,
+  DetectionConfidenceScoreLabel,
+  DetectionConfidenceScore,
+} from "./styledComponents";
+
 import { commenceGestureDetection } from "../../utilities/handposeHelper";
 
 const WebcamFeed = (props) => {
@@ -63,7 +71,7 @@ const WebcamFeed = (props) => {
       middleCircleColor="#e7ed3b"
     />
   ) : (
-    <div>
+    <WebcamFeedBgContainer>
       <Webcam
         ref={webCamRef}
         style={{
@@ -103,7 +111,20 @@ const WebcamFeed = (props) => {
           // border: "o.1rem solid green",
         }}
       />
-    </div>
+
+      <DetectedGesture>
+        <GestureImage
+          src={gestureNameImageMapping[detectedGestureName.gesture_name]}
+          alt={detectedGestureName.gesture_name}
+        />
+        <DetectionConfidenceScoreLabel>
+          Confidence Score:{" "}
+          <DetectionConfidenceScore>
+            {detectedGestureName.confidence_score}
+          </DetectionConfidenceScore>
+        </DetectionConfidenceScoreLabel>
+      </DetectedGesture>
+    </WebcamFeedBgContainer>
   );
 
   return renderedUI;
