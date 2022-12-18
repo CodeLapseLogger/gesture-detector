@@ -120,7 +120,7 @@ const WebcamFeed = (props) => {
           <DetectionConfidenceScoreLabel>
             Confidence Score:{" "}
             <DetectionConfidenceScore as="span">
-              {detectedGestureName.confidence_score}
+              {detectedGestureName.confidence_score.toFixed(2)}
             </DetectionConfidenceScore>
           </DetectionConfidenceScoreLabel>
         </DetectedGesture>
