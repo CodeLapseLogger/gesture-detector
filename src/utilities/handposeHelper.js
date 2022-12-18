@@ -1,9 +1,6 @@
-import * as tf from "@tensorflow/tfjs";
+// import * as tf from "@tensorflow/tfjs";
 import * as handpose from "@tensorflow-models/handpose";
 import * as fp from "fingerpose";
-
-import victory_png from "../images/victory.png";
-import thumbs_up_png from "../images/thumbs_up.png";
 
 import { drawHandMesh } from "./canvasDrawingHelper";
 

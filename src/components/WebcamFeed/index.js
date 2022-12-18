@@ -2,6 +2,9 @@ import { useState, useEffect, useRef } from "react";
 import Webcam from "react-webcam";
 import { ThreeCircles } from "react-loader-spinner";
 
+import victory_png from "../images/victory.png";
+import thumbs_up_png from "../images/thumbs_up.png";
+
 import { commenceGestureDetection } from "../../utilities/handposeHelper";
 
 const WebcamFeed = (props) => {
@@ -10,6 +13,12 @@ const WebcamFeed = (props) => {
 
   // Sets the initial loading state to true to render loader spinner
   const [isWebcamFeedLoading, setWebcamFeedLoadState] = useState(true);
+  const [detectedGestureName, setDetectedGestureName] = useState("");
+
+  const gestureNameImageMapping = {
+    victory: victory_png,
+    thumbs_up: thumbs_up_png,
+  };
 
   // Executed just once to set load state to false, which replaces
   // the rendered loader spinner with webcam feed. Also, kicks off
@@ -21,7 +30,10 @@ const WebcamFeed = (props) => {
     const commenceDetectionAndGetIntervalId = async () => {
       handposeDetectionIntervalId = await commenceGestureDetection(
         webCamRef,
-        canvasRef
+        canvasRef,
+        setDetectedGestureName // To set name of newly detected gesture,
+        // from within startHandposeModelDetection()
+        // method, invoked by commenceGestureDetection().
       );
     };
 
