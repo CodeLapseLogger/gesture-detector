@@ -78,7 +78,10 @@ const startHandposeModelDetection = async (
         );
 
         // Call set method to update the name of detected gesture
-        setGestureNameMethodReference(nameOfGestureWithMaxConfidenceScore);
+        setGestureNameMethodReference({
+          gesture_name: nameOfGestureWithMaxConfidenceScore,
+          confidence_score: detectedMaxConfidenceScore,
+        });
       }
     }
 
