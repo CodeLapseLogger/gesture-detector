@@ -13,7 +13,7 @@ const WebcamFeed = (props) => {
 
   // Sets the initial loading state to true to render loader spinner
   const [isWebcamFeedLoading, setWebcamFeedLoadState] = useState(true);
-  const [detectedGestureName, setDetectedGestureName] = useState("");
+  const [detectedGestureName, setDetectedGestureName] = useState({});
 
   const gestureNameImageMapping = {
     victory: victory_png,
