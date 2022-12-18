@@ -57,24 +57,26 @@ const startHandposeModelDetection = async (
       ); // 8 is the confidence level (scale of 10), could be set to 8.5
       console.log(detectedGesture);
 
-      // Determine the gesture detected with highest confidence
+      // Determine the gesture detected with highest confidence score
       if (
         detectedGesture.gestures !== undefined &&
         detectedGesture.gestures.length !== 0
       ) {
         const detectedGestureData = detectedGesture.gestures;
-        const detectedGestureConfidences = detectedGestureData.map(
-          (gestureDataEntry) => gestureDataEntry.confidence
+        const detectedGestureConfidenceScores = detectedGestureData.map(
+          (gestureDataEntry) => gestureDataEntry.score
         );
 
-        // Extract name of gesture detected with max confidence
-        const detectedMaxConfidence = Math.max(...detectedGestureConfidences);
-        const indexOfGestureWithMaxConfidence =
-          detectedGestureConfidences.indexOf(detectedMaxConfidence);
-        const nameOfGestureWithMaxConfidence =
-          detectedGestureData[indexOfGestureWithMaxConfidence].name;
+        // Extract name of gesture detected with max confidence score
+        const detectedMaxConfidenceScore = Math.max(
+          ...detectedGestureConfidenceScores
+        );
+        const indexOfGestureWithMaxConfidenceScore =
+          detectedGestureConfidenceScores.indexOf(detectedMaxConfidenceScore);
+        const nameOfGestureWithMaxConfidenceScore =
+          detectedGestureData[indexOfGestureWithMaxConfidenceScore].name;
         console.log(
-          `Detected gesture: ${nameOfGestureWithMaxConfidence} with max confidence: ${detectedMaxConfidence}`
+          `Detected gesture: ${nameOfGestureWithMaxConfidenceScore} with max confidence: ${detectedMaxConfidenceScore}`
         );
       }
     }
