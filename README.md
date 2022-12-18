@@ -9,3 +9,10 @@ The primary goal of this project is to explore libraries, Tensorflow.js framewor
 - React.js
 - Tensorflow.js framework for Deep Learning
 - Tensorflow.js pre-trained models
+
+## Referenced resources
+
+- [Real time hand pose estimation](https://www.youtube.com/watch?v=f7uBsb-0sGQ)
+- [Real time gesture recognition](https://www.youtube.com/watch?v=9MTiQMxTXPE)
+- [Mediapipe Hands](https://google.github.io/mediapipe/solutions/hands)
+- [Fingerpose Documentation](https://openbase.com/js/fingerpose/documentation)
