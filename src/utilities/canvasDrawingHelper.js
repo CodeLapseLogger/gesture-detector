@@ -34,7 +34,7 @@ export const drawHandMesh = (detectedHandData, canvas2DContext) => {
         const firstLandmarkInThePair =
           currentFingerLandmarks[currentFingerLandmarkIndex];
         const secondLandmarkInThePair =
-          currentFingerLandmarks[currentFingerLandmarkIndex];
+          currentFingerLandmarks[currentFingerLandmarkIndex + 1];
 
         // Connect the two landmarks with a canvas line path
         canvas2DContext.beginPath();
