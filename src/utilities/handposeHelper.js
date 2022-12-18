@@ -43,6 +43,12 @@ const startHandposeModelDetection = async (
     // detected hand data.
     const currentContextOfCanvas =
       canvasElementReference.current.getContext("2d");
+    currentContextOfCanvas.clearRect(
+      0,
+      0,
+      canvasElementReference.width,
+      canvasElementReference.height
+    );
     drawHandMesh(detectedHandEstimateData, currentContextOfCanvas);
   }
 };
