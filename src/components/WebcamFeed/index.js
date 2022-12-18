@@ -111,19 +111,20 @@ const WebcamFeed = (props) => {
           // border: "o.1rem solid green",
         }}
       />
-
-      <DetectedGesture>
-        <GestureImage
-          src={gestureNameImageMapping[detectedGestureName.gesture_name]}
-          alt={detectedGestureName.gesture_name}
-        />
-        <DetectionConfidenceScoreLabel>
-          Confidence Score:{" "}
-          <DetectionConfidenceScore>
-            {detectedGestureName.confidence_score}
-          </DetectionConfidenceScore>
-        </DetectionConfidenceScoreLabel>
-      </DetectedGesture>
+      {Object.keys(detectedGestureName).length !== 0 && (
+        <DetectedGesture>
+          <GestureImage
+            src={gestureNameImageMapping[detectedGestureName.gesture_name]}
+            alt={detectedGestureName.gesture_name}
+          />
+          <DetectionConfidenceScoreLabel>
+            Confidence Score:{" "}
+            <DetectionConfidenceScore as="span">
+              {detectedGestureName.confidence_score}
+            </DetectionConfidenceScore>
+          </DetectionConfidenceScoreLabel>
+        </DetectedGesture>
+      )}
     </WebcamFeedBgContainer>
   );
 
