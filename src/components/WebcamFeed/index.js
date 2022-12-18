@@ -52,17 +52,17 @@ const WebcamFeed = (props) => {
       <Webcam
         ref={webCamRef}
         style={{
-          position: "relative",
+          position: "absolute",
           marginLeft: "auto",
           marginRight: "auto",
-          left: 40,
-          // right: 0,
-          top: 10,
+          left: 0,
+          right: 0,
+          // top: 10,
           textAlign: "center",
           zindex: 9,
           width: 640, //"60vw",
           height: 480, //"70vh",
-          border: "o.1rem solid yellow",
+          // border: "o.1rem solid yellow",
         }}
       />
 
@@ -72,15 +72,15 @@ const WebcamFeed = (props) => {
           position: "absolute",
           marginLeft: "auto",
           marginRight: "auto",
-          // left: 0,
-          // right: 0,
-          top: 10,
-          right: 40,
+          left: 0,
+          right: 0,
+          // top: 10,
+          // right: 40,
           textAlign: "center",
           zindex: 9,
-          width: 540, //"60vw",
-          height: 380, //"70vh",
-          border: "o.1rem solid green",
+          width: 640, //"60vw",
+          height: 480, //"70vh",
+          // border: "o.1rem solid green",
         }}
       />
     </div>

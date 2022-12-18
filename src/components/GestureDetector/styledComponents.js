@@ -5,8 +5,8 @@ export const GestureDetectorBgContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  height: 100%;
+  // min-height: 100vh;
+  // height: 100%;
   //   width: 100vw;
   padding: 2rem;
   background-color: ${(props) => (props.isDarkTheme ? "#191a1c" : "#ffffff")};
