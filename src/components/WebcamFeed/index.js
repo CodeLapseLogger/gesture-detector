@@ -44,7 +44,10 @@ const WebcamFeed = (props) => {
     // Returned method called only before this component
     // unmounts, as part of cleanup.
     return () => clearInterval(handposeDetectionIntervalId);
-  }, []);
+  }, [detectedGestureName]); // Will be invoked each time value in detectedGestureName is updated
+  // with a call to setDetectedGestureName() method inside
+  // the helper method startHandposeModelDetection() from handposeHenper.js
+  // file.
 
   const renderedUI = isWebcamFeedLoading ? (
     <ThreeCircles
