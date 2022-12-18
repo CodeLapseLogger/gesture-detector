@@ -12,7 +12,8 @@ const loadHandposeModel = async () => {
 const startHandposeModelDetection = async (
   webcamElementReference,
   canvasElementReference,
-  loadedHandposeModel
+  loadedHandposeModel,
+  setGestureNameMethodReference
 ) => {
   // Check to see if there is a webcam feed
   if (
@@ -75,6 +76,9 @@ const startHandposeModelDetection = async (
         console.log(
           `Detected gesture: ${nameOfGestureWithMaxConfidenceScore} with max confidence: ${detectedMaxConfidenceScore}`
         );
+
+        // Call set method to update the name of detected gesture
+        setGestureNameMethodReference(nameOfGestureWithMaxConfidenceScore);
       }
     }
 
@@ -97,7 +101,8 @@ const startHandposeModelDetection = async (
 // estimated hand pose.
 export const commenceGestureDetection = async (
   webcamElementReference,
-  canvasElementReference
+  canvasElementReference,
+  setGestureNameMethodReference
 ) => {
   const loadedHandposeModel = await loadHandposeModel();
 
@@ -109,7 +114,8 @@ export const commenceGestureDetection = async (
       await startHandposeModelDetection(
         webcamElementReference,
         canvasElementReference,
-        loadedHandposeModel
+        loadedHandposeModel,
+        setGestureNameMethodReference
       ),
     100
   );
